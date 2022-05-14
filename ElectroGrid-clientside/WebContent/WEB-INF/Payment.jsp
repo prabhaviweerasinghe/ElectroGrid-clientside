@@ -78,20 +78,34 @@
 				<br>
 					
 
+  <div class="row">
+               
 
+                <div class="container">
+                    <h3 class="text-center">Payment Details</h3>
+                    <hr>
+                    <div class="container text-left">
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+                        <a href="Index.jsp" class="btn btn-success"style="background-color:#5353ff">Navigate To Home page</a>
+                    </div>
+                    <br>
+                   <div id="divItemsGrid">   
+					<%    
+					    Payment paymentObj = new Payment();
+						out.print(paymentObj.readPayment());   
+					%>  
+					
+					
+					<br><br><br>
+					  <a href="Login.jsp" class="btn btn-success"style="background-color: 	#5353ff">Logout</a>
+					</div> 
+                   
+                </div>
+            </div>
+				  
+ 			</div>
+ 		 
+ 		</div>   
+ 		 <br>
 </body>
 </html>
