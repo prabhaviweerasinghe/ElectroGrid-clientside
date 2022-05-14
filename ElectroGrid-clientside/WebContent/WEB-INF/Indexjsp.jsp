@@ -31,26 +31,17 @@
                     <h3 class="text-center">Home Page</h3>
                     <hr>
 <div>
-<figure>
-<a href="Customer.jsp"><img src="img/customer.png" class="rounded float-left m-5" alt="customer" width="35%"></a>
-<figcaption></figcaption>
-</figure>
-
-
 
 <a href="Payment.jsp"><img src="img/payments.png" class="rounded float-left m-5" alt="payments" width="40%"></a>
 
 </div>
 </div>
+  
 
-<a href="Login.jsp" button type="button" class="btn btn-primary btn-lg"background-color: #5353ff">Logout</button></a>
- 
- 
-                
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
-</head>
-<body>
+
 
 </body>
+
+
+
 </html>
