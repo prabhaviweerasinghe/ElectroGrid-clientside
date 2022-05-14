@@ -68,6 +68,17 @@ function onPaymentSaveComplete(response, status){
 	$("#formPayment")[0].reset();
 }
 
+//UPDATE============================================
+$(document).on("click", ".btnUpdate", function(event) 
+		{     
+	$("#hidPaymentIDSave").val($(this).closest("tr").find('#hidPaymentIDUpdate').val());     
+	$("#Amount").val($(this).closest("tr").find('td:eq(0)').text());    
+	$("#PaymentCardNo").val($(this).closest("tr").find('td:eq(1)').text());     
+	$("#PaymentType").val($(this).closest("tr").find('td:eq(2)').text());     
+	$("#PayementDate").val($(this).closest("tr").find('td:eq(3)').text()); 
+	
+
+});
 
 
 
