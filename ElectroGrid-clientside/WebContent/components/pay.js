@@ -81,6 +81,48 @@ $(document).on("click", ".btnUpdate", function(event)
 });
 
 
+//Remove Operation
+$(document).on("click", ".btnRemove", function(event){
+	$.ajax(
+	{
+		url : "PaymentApi",
+		type : "DELETE",
+		data : "PaymentID=" + $(this).data("paymentid"),
+		dataType : "text",
+		complete : function(response, status)
+		{
+			onPaymentDeletedComplete(response.responseText, status);
+		}
+	});
+});
+
+function onPaymentDeletedComplete(response, status)
+{
+	if(status == "success")
+	{
+		var resultSet = JSON.parse(response);
+			
+		if(resultSet.status.trim() == "success")
+		{
+			$("#alertSuccess").text("Successfully Deleted.");
+			$("#alertSuccess").show();
+					
+			$("#divItemsGrid").html(resultSet.data);
+	
+		}else if(resultSet.status.trim() == "error"){
+			$("#alertError").text(resultSet.data);
+			$("#alertError").show();
+		}
+	}else if(status == "error"){
+		$("#alertError").text("Error While Deleting.");
+		$("#alertError").show();
+	}else{
+		$("#alertError").text("Unknown Error While Deleting.");
+		$("#alertError").show();
+	}
+}
+
+
 
 
 
