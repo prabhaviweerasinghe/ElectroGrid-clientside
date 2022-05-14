@@ -122,38 +122,40 @@ function onPaymentDeletedComplete(response, status)
 	}
 }
 
+//CLIENTMODEL
+function validatePaymentForm() {  
+	// Date  
+	if ($("#PaymentDate").val().trim() == "")  {   
+		return "Insert Date.";  
+		
+	} 
+	
+	 // Type 
+	if ($("#PaymentType").val().trim() == "")  {   
+		return "Insert Type.";  
+	} 
+	
+	
+	// Amount  
+	if ($("#Amount").val().trim() == "")  {   
+		return "Insert Amount."; 
+		 
+	}
+	 
+	 // is numerical value  
+	var tmpMobile = $("#CardNumber").val().trim();  
+	if (!$.isNumeric(tmpMobile))  {   
+		return "Insert a numerical value for CardNumber.";  
+		
+	}
+	 
+	
+		
 
+	 
+	 return true; 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+}
 /**
  * 
  */
