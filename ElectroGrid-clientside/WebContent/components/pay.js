@@ -125,8 +125,8 @@ function onPaymentDeletedComplete(response, status)
 //CLIENTMODEL
 function validatePaymentForm() {  
 	// Date  
-	if ($("#PaymentDate").val().trim() == "")  {   
-		return "Insert Date.";  
+	if ($("#PaymentCardNo").val().trim() == "")  {   
+		return "Insert PaymentCardNo.";  
 		
 	} 
 	
@@ -137,15 +137,15 @@ function validatePaymentForm() {
 	
 	
 	// Amount  
-	if ($("#Amount").val().trim() == "")  {   
-		return "Insert Amount."; 
+	if ($("#PaymentDate").val().trim() == "")  {   
+		return "Insert PaymentDate."; 
 		 
 	}
 	 
 	 // is numerical value  
-	var tmpMobile = $("#CardNumber").val().trim();  
+	var tmpMobile = $("#Amount").val().trim();  
 	if (!$.isNumeric(tmpMobile))  {   
-		return "Insert a numerical value for CardNumber.";  
+		return "Insert a numerical value for Amount.";  
 		
 	}
 	 

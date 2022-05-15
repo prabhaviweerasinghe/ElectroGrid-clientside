@@ -37,8 +37,8 @@ public class Payment {
 				}
 
 				// Prepare the html table to be displayed
-				output = "<table border='1'><tr><th>Payment ID</th>" + "<th>Amount</th><th>Payment Card Number</th>"
-						+ "<th>Payment Type</th>"+"<tr><th>Payment Date</th>"+"<th>Update</th><th>Remove</th></tr>";
+				output = "<table border='1'><tr><th>Amount</th>" + "<th>Payment Card Number</th><th>Payment Type</th>"
+						+ "<th>Payment Date</th>" + "<th>Update</th><th>Remove</th></tr>";
 
 				String query = "select * from payment";
 				Statement stmt = con.createStatement();
@@ -51,7 +51,7 @@ public class Payment {
 					String Amount = rs.getString("Amount");
 					String PaymentCardNo = rs.getString("PaymentCardNo");
 					String PaymentType = rs.getString("PaymentType");
-					String PaymentDate = Integer.toString(rs.getInt("PaymentDate"));
+					String PaymentDate = rs.getString("PaymentDate");
 
 					// Add into the html table
 

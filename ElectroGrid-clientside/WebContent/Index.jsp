@@ -32,7 +32,7 @@
                     <hr>
 <div>
 
-<a href="Payment.jsp"><img src="img/payments.png" class="rounded float-left m-5" alt="payments" width="40%"></a>
+<a href="Payment.jsp"><img src="img/payment.jpeg" class="rounded float-left m-5" alt="payment" width="40%"></a>
 
 </div>
 </div>
