@@ -49,7 +49,7 @@ public class Payment {
 
 					String PaymentID = Integer.toString(rs.getInt("PaymentID"));
 					String Amount = rs.getString("Amount");
-					String PaymentCardNumber = rs.getString("PaymentCardNumber");
+					String PaymentCardNo = rs.getString("PaymentCardNo");
 					String PaymentType = rs.getString("PaymentType");
 					String PaymentDate = Integer.toString(rs.getInt("PaymentDate"));
 
@@ -58,7 +58,7 @@ public class Payment {
 					output += "<tr><td><input id='hidPaymentIDUpdate' name='hidPaymentIDUpdate' type='hidden' value='"
 							+ PaymentID + "'>" + Amount + "</td>";
 
-					output += "<td>" + PaymentCardNumber + "</td>";
+					output += "<td>" + PaymentCardNo + "</td>";
 					output += "<td>" + PaymentType + "</td>";
 					output += "<td>" + PaymentDate+ "</td>";
 
@@ -81,7 +81,7 @@ public class Payment {
 		}
 		
 		// Insert appointment
-		public String insertPayment(String Amount, String PaymentCardNumber, String PaymentType, String PaymentDate) {
+		public String insertPayment(String Amount, String PaymentCardNo, String PaymentType, String PaymentDate) {
 			String output = "";
 
 			try {
@@ -92,7 +92,7 @@ public class Payment {
 				}
 
 				// create a prepared statement
-				String query = " insert into payment (`PaymentID`,Amount`,`PaymentCardNumber`,`PaymentType`,`PaymentDate`)"
+				String query = " insert into payment (`PaymentID`,Amount`,`PaymentCardNo`,`PaymentType`,`PaymentDate`)"
 						+ " values (?, ?, ?, ?, ?)";
 
 				PreparedStatement preparedStmt = con.prepareStatement(query);
@@ -100,7 +100,7 @@ public class Payment {
 				// binding values
 				preparedStmt.setInt(1, 0);
 				preparedStmt.setString(2, Amount);
-				preparedStmt.setString(3, PaymentCardNumber);
+				preparedStmt.setString(3, PaymentCardNo);
 				preparedStmt.setString(4, PaymentType);
 				preparedStmt.setString(5, PaymentDate);
 
@@ -121,7 +121,7 @@ public class Payment {
 		}
 
 		// Update Customer Details
-		public String updatePayment(String PaymentID, String Amount, String PaymentCardNumber, String PaymentType,
+		public String updatePayment(String PaymentID, String Amount, String PaymentCardNo, String PaymentType,
 				String PaymentDate) {
 			String output = "";
 
@@ -133,13 +133,13 @@ public class Payment {
 				}
 				
 				// create a prepared statement
-				String query = "UPDATE payment SET Amount=?,PaymentCardNumber=?,PaymentType=?,PaymentDate=? WHERE PaymentID=?";
+				String query = "UPDATE payment SET Amount=?,PaymentCardNo=?,PaymentType=?,PaymentDate=? WHERE PaymentID=?";
 
 				PreparedStatement preparedStmt = con.prepareStatement(query);
 
 				// binding values
 				preparedStmt.setString(1, Amount);
-				preparedStmt.setString(2, PaymentCardNumber);
+				preparedStmt.setString(2, PaymentCardNo);
 				preparedStmt.setString(3, PaymentType);
 				preparedStmt.setInt(4, Integer.parseInt(PaymentDate));
 				preparedStmt.setInt(5, Integer.parseInt(PaymentID));
@@ -152,7 +152,7 @@ public class Payment {
 				String newPayment = readPayment();
 				output = "{\"status\":\"success\", \"data\": \"" + newPayment + "\"}";
 			} catch (Exception e) {
-				output = "{\"status\":\"error\", \"data\": \"Error while Updating Customer Details.\"}";
+				output = "{\"status\":\"error\", \"data\": \"Error while Updating Payment Details.\"}";
 				System.err.println(e.getMessage());
 			}
 
@@ -185,7 +185,7 @@ public class Payment {
 				output = "{\"status\":\"success\", \"data\": \"" + newPayment + "\"}";
 			} catch (Exception e) {
 				// Create JSON object
-				output = "{\"status\":\"error\", \"data\": \"Error while Deleting Customer.\"}";
+				output = "{\"status\":\"error\", \"data\": \"Error while Deleting Payment.\"}";
 				System.err.println(e.getMessage());
 
 			}
